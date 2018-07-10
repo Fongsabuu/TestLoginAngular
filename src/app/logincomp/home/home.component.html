@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div class="container">
+  <nav>
+    <span>
+      <a routerLink="">GetallUser</a> |
+      <a routerLink="/home/search">Search</a> | 
+      <a routerLink="/home/editprofile">Edit</a> |==>>
+    </span>
+    <button (click)="logOut()">logOut</button>
+  </nav>
+  <br>
+  <table class="table table-bordered">
+    <tr>
+      <th>Id </th>
+      <th>Username</th>
+      <th>Password</th>
+    </tr>
+    <tr *ngFor="let user of uLogin" [class.selected]="all === selectedUser" (click)="onSelect(user)">
+      <td>{{user.id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+    </tr>
+  </table>
+  <div *ngIf="selectedUser">
+    <!-- <h3>Username : {{ selectedUser.user | uppercase }}<br> Password : {{ selectedUser.pass | uppercase }} </h3> -->
+    <!-- <span>ID: </span>{{selectedUser.id}} -->
+    <div>
+      <label>ID:
+        <input type="text" [(ngModel)]="selectedUser.id" disabled="false">
+      </label>&nbsp;
+      <label>Username:
+        <input type="text" [(ngModel)]="selectedUser.username" placeholder="Username">
+      </label>&nbsp;
+      <label>Password:
+        <input type="text" [(ngModel)]="selectedUser.password" placeholder="Password">
+      </label>&nbsp;&nbsp;
+      <button class='btn btn-primary' (click)="updateUser(selectedUser)">Save</button>&nbsp;
+      <button class='btn btn-danger' (click)="deleteUser(selectedUser)">Delete</button>&nbsp;
+      <!-- <button class='btn btn-warning' (click)="clearContact()">Clear</button> -->
+    </div>
+    <div class="container">
+      <img [src]="imageUrl" style="width: 250px;height: 200px">
+    </div>
+  </div>
+</div>

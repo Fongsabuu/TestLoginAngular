@@ -1,0 +1,9 @@
+<img [src]="imageUrl" style="width: 250px;height: 200px">
+<br>
+<br>
+
+<label class="btn btn-default">
+<input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)" >
+</label>&nbsp;&nbsp;
+<button class="btn btn-success" [disabled]="!fileToUpload"
+	(click)="upload()">Upload</button>

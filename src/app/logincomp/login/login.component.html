@@ -1,0 +1,54 @@
+<div class="container">
+  <h1>
+    Login</h1>
+  <!-- {{uLogin.username}} -->
+
+  <form (ngSubmit)="login(myForm)" #myForm="ngForm">
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <br>
+      <input type="text" class="form-control" id="username" required [(ngModel)]="uLogin.username" name="username" #username="ngModel">
+      <br>
+      <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+        Username is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <br>
+      <input type="password" class="form-control" id="password" required [(ngModel)]="uLogin.password" name="password" #password="ngModel">
+      <br>
+      <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+        Password is required
+      </div>
+      <br>
+    </div>
+
+    <button type="submit" class="btn btn-success" [disabled]="!myForm.form.valid">Login</button>
+    <span>&nbsp;&nbsp;
+      <a [routerLink]="['/register']">Register</a>
+    </span>
+  </form>
+</div>
+<!-- <button type="button" class="btn btn-default" (click)="newHero(); heroForm.reset()">New Hero</button> -->
+
+<!-- <button (click)="login(myForm)">Login</button>
+    <span>&nbsp;&nbsp;
+      <a [routerLink]="['/register']">Register</a>
+    </span>  -->
+
+<!-- 
+<input (keyup)="onKey($event)">
+<p>{{values}}</p>
+<input #box (keyup)="0">
+<p>{{box.value}}</p>
+<input #newHero (keyup.enter)="addHero(newHero.value)" (blur)="addHero(newHero.value); newHero.value='' ">
+
+<button (click)="addHero(newHero.value)">Add</button>
+
+<ul>
+  <li *ngFor="let hero of heroes">{{hero}}</li>
+</ul> -->
+`
