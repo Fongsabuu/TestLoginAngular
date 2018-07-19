@@ -25,8 +25,8 @@ export class EditComponent implements OnInit {
     this.imageUrl = "http://localhost:8080/loadImage?id=" + this.uLogin.id;
   }
 
-  updateUser(updateUser: UserLogin) {
-    this.loginService.updateUser(updateUser).subscribe((response) => {
+  updateUser() {
+    this.loginService.updateUser(this.uLogin).subscribe((response) => {
       console.log(response.code);
       if (response.code == "200") {
         alert("Update Success......");
@@ -36,4 +36,7 @@ export class EditComponent implements OnInit {
       }
     });
   }
+  backClicked() {
+    this._location.back();
+}
 }
