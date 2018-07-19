@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLogin } from "../../model/user-login";
-import { LoginServicesService } from '../../Service/login.service';
-import { TabloginsComponent } from "../tablogins/tablogins.component";
-import {Location} from '@angular/common';
+import { LoginServicesService } from '../../Service/login.service'; import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit',
@@ -17,8 +15,8 @@ export class EditComponent implements OnInit {
   private password: String;
   private imageUrl;
 
-  constructor( private router: Router,
-    private loginService: LoginServicesService,
+  constructor(private loginService: LoginServicesService,
+    private router: Router,
     private _location: Location) { }
 
   ngOnInit() {
@@ -27,13 +25,8 @@ export class EditComponent implements OnInit {
     this.imageUrl = "http://localhost:8080/loadImage?id=" + this.uLogin.id;
   }
 
-  // logOut() {
-  //   localStorage.removeItem("lStatus");
-  //   this.router.navigate(['/login']);
-  // }
-
-  updateUser() {
-    this.loginService.updateUser(this.uLogin).subscribe((response) => {
+  updateUser(updateUser: UserLogin) {
+    this.loginService.updateUser(updateUser).subscribe((response) => {
       console.log(response.code);
       if (response.code == "200") {
         alert("Update Success......");
@@ -43,7 +36,4 @@ export class EditComponent implements OnInit {
       }
     });
   }
-  backClicked() {
-    this._location.back();
-}
 }
