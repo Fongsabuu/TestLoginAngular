@@ -1,0 +1,40 @@
+<div class="container">
+  <app-tablogins></app-tablogins>
+  <p> 
+    edit works!
+  </p>
+  <div class="ui-g-12 ui-md-6 ui-lg-4">
+    <h3>Username :</h3>
+    
+    <span class="ui-float-label">
+      <input id="float-input" type="text" size="30" pInputText [(ngModel)]="uLogin.username">
+    </span>
+    <h3>Password :</h3>
+    <span class="ui-float-label">
+      <input id="float-input" type="text" size="30" pInputText [(ngModel)]="uLogin.password">
+    </span>
+    <h3>Name : </h3>
+    <span class="ui-float-label">
+      <input id="float-input" type="text" size="30" pInputText [(ngModel)]="uLogin.name">
+    </span>
+    <h3>BirthDay : </h3>
+    <span class="ui-float-label">
+      <input id="float-input" type="text" size="30" pInputText [(ngModel)]="uLogin.birthday">
+    </span>
+  </div>
+  <br>
+  <br>
+  <div class="ui-g-12 ui-md-6 ui-lg-4">
+    <div class="container">
+      <img [src]="imageUrl" style="width: 250px;height: 200px">
+    </div>
+  </div>
+</div>
+<br>
+<div class="container">
+  <div class="ui-g-12 ui-md-6 ui-lg-4">
+    <button type="button" class="btn btn-success" (click)="updateUser()">Save</button>
+    &nbsp;
+    <button type="button" class="btn btn-success" (click)="backClicked()">Back</button>
+  </div>
+</div>

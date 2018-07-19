@@ -28,7 +28,9 @@ export class RegisterComponent implements OnInit {
     this.uLogin = {
       id: null,
       username: null,
-      password: null
+      password: null,
+      name: null,
+      birthday: null
     }
   }
 

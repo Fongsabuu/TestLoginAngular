@@ -4,7 +4,9 @@ import { UserComponent } from './components/user/user.component';
 import { LoginComponent } from './logincomp/login/login.component';
 import { HomeComponent } from "./logincomp/home/home.component";
 import { RegisterComponent } from "./logincomp/register/register.component";
-import { GetallUserComponent } from "./logincomp/getall-user/getall-user.component";
+import { EditComponent } from "./logincomp/edit/edit.component";
+import {SearchComponent} from "./logincomp/search/search.component";
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -12,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home/getalluser', component: GetallUserComponent },
+  { path: 'home/edit', component: EditComponent },
+  { path: 'home/search', component: SearchComponent },
   { path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
 

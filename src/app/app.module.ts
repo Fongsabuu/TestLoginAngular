@@ -10,9 +10,16 @@ import { LoginComponent } from './logincomp/login/login.component';
 import { HttpModule, Http } from '@angular/http';
 import { HomeComponent } from './logincomp/home/home.component';
 import { RegisterComponent } from './logincomp/register/register.component';
-import { GetallUserComponent } from './logincomp/getall-user/getall-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UploadImageComponent } from './logincomp/upload-image/upload-image.component';
+import { EditComponent } from "./logincomp/edit/edit.component";
+import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
+import {MenuItem} from 'primeng/api';                 //api
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
+import { TabloginsComponent } from './logincomp/tablogins/tablogins.component';
+import { SearchComponent } from './logincomp/search/search.component';
+import {DataViewModule} from 'primeng/dataview';
 
 @NgModule({
   declarations: [
@@ -22,14 +29,20 @@ import { UploadImageComponent } from './logincomp/upload-image/upload-image.comp
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    GetallUserComponent,
-    UploadImageComponent
+    UploadImageComponent,
+    EditComponent,
+    TabloginsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule, 
     FormsModule, AppRoutingModule,
     HttpModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AccordionModule,
+    ButtonModule,
+    InputTextModule,
+    DataViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]

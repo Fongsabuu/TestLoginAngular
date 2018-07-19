@@ -3,6 +3,7 @@ import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from
 import { UserLogin } from '../../model/user-login';
 import { LoginServicesService } from '../../Service/login.service';
 import { CdkTableModule } from '@angular/cdk/table';
+import { TabloginsComponent } from "../tablogins/tablogins.component";
 
 @Component({
   selector: 'app-home',
@@ -34,10 +35,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  logOut() {
-    localStorage.removeItem("lStatus");
-    this.router.navigate(['/login']);
-  }
+  // logOut() {
+  //   localStorage.removeItem("lStatus");
+  //   this.router.navigate(['/login']);
+  // }
 
   gelALlUser() {
     this.loginService.doShowAllUser().subscribe((response) => {

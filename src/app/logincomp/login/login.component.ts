@@ -29,7 +29,9 @@ export class LoginComponent implements OnInit {
     this.uLogin = {
       id: null,
       username: null,
-      password: null
+      password: null,
+      name: null,
+      birthday: null
     }
     this.loginstatus = localStorage.getItem("lStatus");
     if (this.loginstatus == "1") {
@@ -46,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.code = response.code;
 
         if (this.code == "200") {
-          console.log("login success ==> " + this.uLogin.id + "||" + this.uLogin.username + "||" + this.uLogin.password);
+          console.log("login success ==> " + this.uLogin.id + "||" + this.uLogin.username + "||" + this.uLogin.password + "||" + this.uLogin.name + "||" + this.uLogin.birthday);
           localStorage.setItem("lStatus", "1"); //*** set login status = 1 when login ***
           this.loginService.setUser(this.uLogin);
           this.router.navigate(['/home']);
