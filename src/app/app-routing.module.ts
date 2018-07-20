@@ -6,6 +6,8 @@ import { HomeComponent } from "./logincomp/home/home.component";
 import { RegisterComponent } from "./logincomp/register/register.component";
 import { EditComponent } from "./logincomp/edit/edit.component";
 import {SearchComponent} from "./logincomp/search/search.component";
+import {DataViewModule} from 'primeng/dataview';
+import {DropdownModule} from 'primeng/dropdown';
 
 
 const routes: Routes = [

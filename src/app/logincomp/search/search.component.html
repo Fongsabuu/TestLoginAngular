@@ -1,0 +1,74 @@
+<div class="container">
+    <app-tablogins></app-tablogins>
+    <br>
+    <p-dataView #dv [value]="user" [paginator]="true" [rows]="5" paginatorPosition="both" filterBy="username" [sortField]="sortField"
+        [sortOrder]="sortOrder">
+        <p-header>
+            <div class="ui-helper-clearfix">
+                <div class="ui-g">
+                    <div class="ui-g-12 ui-md-4">
+                        <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By" (onChange)="onSortChange($event)" [autoWidth]="false"
+                            [style]="{'min-width':'15em'}"></p-dropdown>
+                    </div>
+                    <div class="ui-g-6 ui-md-4 filter-container">
+                        <div style="position:relative">
+                            <input type="search" pInputText placeholder="Search by Username" (keyup)="dv.filter($event.target.value)">
+                        </div>
+                    </div>
+                    <div class="ui-g-6 ui-md-4" style="text-align:right">
+                        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                    </div>
+                </div>
+            </div>
+        </p-header>
+        <ng-template let-user pTemplate="listItem">
+            <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
+                <!-- <div (click)="test()"> -->
+                    <div class="ui-g-12 ui-md-3" style="text-align:center">
+                        <img src="http://localhost:8080/loadImage?id={{user.id}}" width="60%">
+                    </div>
+                    <div class="ui-g-12 ui-md-8 car-details">
+                        <div class="ui-g">
+                            <div class="ui-g-2 ui-sm-6">Username: </div>
+                            <div class="ui-g-10 ui-sm-6">
+                                <b>{{user.username}}</b>
+                            </div>
+
+                            <div class="ui-g-2 ui-sm-6">Password: </div>
+                            <div class="ui-g-10 ui-sm-6">
+                                <b>{{user.password}}</b>
+                            </div>
+
+                            <div class="ui-g-2 ui-sm-6">Name: </div>
+                            <div class="ui-g-10 ui-sm-6">
+                                <b>{{user.name}}</b>
+                            </div>
+
+                            <div class="ui-g-2 ui-sm-6">Birthday: </div>
+                            <div class="ui-g-10 ui-sm-6">
+                                <b>{{user.birthday}}</b>
+                            </div>
+                        </div>
+                    </div>
+                <!-- </div> -->
+                <div class="ui-g-12 ui-md-1 search-icon" style="text-align:center">
+                    <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)"></button>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template let-user pTemplate="gridItem">
+            <div style="padding:.5em" class="ui-g-12 ui-md-6">
+                <p-panel [header]="user.username" [style]="{'text-align':'center'}" (click)="test()">
+                    <img src="http://localhost:8080/loadImage?id={{user.id}}" width="60%">
+                    <br>
+                    <br>
+                    <div class="car-detail">{{user.id}} - {{user.name}}</div>
+                    <hr class="ui-widget-content" style="border-top:0">
+                    <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)" style="margin-top:0"></button>
+                </p-panel>
+            </div>
+        </ng-template>
+    </p-dataView>
+</div>
+<br>
+<br>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserLogin } from "../../model/user-login";
-import { LoginServicesService } from '../../Service/login.service'; import { Location } from '@angular/common';
+import { LoginServicesService } from '../../Service/login.service'; 
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-edit',

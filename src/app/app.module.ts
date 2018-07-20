@@ -14,12 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UploadImageComponent } from './logincomp/upload-image/upload-image.component';
 import { EditComponent } from "./logincomp/edit/edit.component";
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem} from 'primeng/api';                 //api
+
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import { TabloginsComponent } from './logincomp/tablogins/tablogins.component';
 import { SearchComponent } from './logincomp/search/search.component';
 import {DataViewModule} from 'primeng/dataview';
+import {DropdownModule} from 'primeng/dropdown';
+import {PanelModule} from 'primeng/panel';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import {DataViewModule} from 'primeng/dataview';
     AccordionModule,
     ButtonModule,
     InputTextModule,
-    DataViewModule
+    DataViewModule,
+    DropdownModule,
+    PanelModule
   ],
   providers: [],
   bootstrap: [AppComponent]
