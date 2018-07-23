@@ -62,5 +62,12 @@ export class LoginServicesService {
       })
     );
   }
+
+  lazyloadpaging(first, rows) {
+    return this.http.get('http://localhost:8080/lazyloadgetuser?' + 'first=' + first + '&rows=' + rows).pipe(map((res) => res.json()));
+  }
   
+  getCountUser() {
+    return this.http.get('http://localhost:8080/getcountuser').pipe(map((res) => res.json()));
+  }
 }

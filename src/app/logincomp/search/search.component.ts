@@ -3,8 +3,8 @@ import { UserLogin } from "../../model/user-login";
 import { LoginServicesService } from '../../Service/login.service';
 import { Router } from '@angular/router';
 import { TabloginsComponent } from "../tablogins/tablogins.component";
-import { Url } from 'url';
 import { SelectItem } from 'primeng/primeng';
+
 
 
 @Component({
@@ -14,29 +14,45 @@ import { SelectItem } from 'primeng/primeng';
 })
 export class SearchComponent implements OnInit {
 
-  private user: UserLogin;
+  private user: UserLogin[];
   private sortOptions: SelectItem[];
   private sortKey: string;
   private sortField: string;
   private sortOrder: number;
+  private testlength;
+  private rows: string;
+  private first: string;
 
   constructor(private loginService: LoginServicesService,
-    private route: Router) { }
+    private route: Router,) { }
 
   ngOnInit() {
-    this.gelALlUser();
+    this.first = "0";
+    this.rows = "30";                                             //!---  Data count to display per page. --!
+    this.lazyloadpaging();
     this.sortOptions = [
       { label: 'Newest First', value: '!id' },
       { label: 'Oldest First', value: 'id' },
       { label: 'User', value: 'username' }
     ];
-    //console.log(this.imageUrl);
+  }
+
+  
+  lazyloadpaging() {
+    this.loginService.getCountUser().subscribe((response) => {
+      this.testlength = response.result;
+    });
+    this.loginService.lazyloadpaging(this.first, this.rows).subscribe((response) => {
+      this.user = response.result;
+    });
   }
 
   gelALlUser() {
     this.loginService.doShowAllUser().subscribe((response) => {
       this.user = response.result;
       console.log(this.user);
+      this.testlength = this.user.length;
+      console.log(this.testlength);
     });
   }
 
@@ -53,7 +69,22 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  test(){
+  test() {
     alert("Hello World");
+  }
+
+  loadUser(event) {
+    this.first = event.first;
+    this.loginService.lazyloadpaging(this.first, this.rows).subscribe((response) => {
+      this.user = response.result;
+    });
+  }
+
+  paginate(event) {
+    console.log(event.rows);
+    //event.first = Index of the first record
+    //event.rows = Number of rows to display in new page
+    //event.page = Index of the new page
+    //event.pageCount = Total number of pages
   }
 }

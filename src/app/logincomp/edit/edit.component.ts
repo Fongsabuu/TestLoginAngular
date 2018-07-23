@@ -15,6 +15,7 @@ export class EditComponent implements OnInit {
   private username: String;
   private password: String;
   private imageUrl;
+  date6: Date;
 
   constructor(private loginService: LoginServicesService,
     private router: Router,

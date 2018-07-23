@@ -22,6 +22,7 @@ import { SearchComponent } from './logincomp/search/search.component';
 import {DataViewModule} from 'primeng/dataview';
 import {DropdownModule} from 'primeng/dropdown';
 import {PanelModule} from 'primeng/panel';
+import {PaginatorModule} from 'primeng/paginator';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import {PanelModule} from 'primeng/panel';
     InputTextModule,
     DataViewModule,
     DropdownModule,
-    PanelModule
+    PanelModule,
+    PaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
